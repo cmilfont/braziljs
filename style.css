@@ -1,0 +1,203 @@
+@font-face {
+  font-family: Lithos;
+  src: url('LithosPro-Regular.otf');
+}
+
+@font-face {
+  font-family: Lithos;
+  font-weight: bold;
+  src: url('LithosPro-Black.otf');
+}
+
+html {
+  font-family: Lithos, sans-serif;
+  color: #450D0B;
+  background: url('images/textura.png');
+}
+
+body {
+  margin: 0;
+}
+
+h1 {
+  margin: 0 0 15px;
+  padding: 0;
+  width: 60%;
+  height: 24px;
+  font-size: 24px;
+  border-bottom: 5px solid #AB8978;
+}
+/* h1 span { */
+/*   display: block; */
+/*   float: left; */
+/*   padding: 6px 10px;  */
+/*   font-size: 24px; */
+/*   text-shadow: 5px 5px 5px #000; */
+/*   color: #FFF; */
+/*   border-radius: 5px; */
+/*   -moz-border-radius: 5px; */
+/*   -webkit-border-radius: 5px; */
+/*   background: #AB8978; */
+/* } */
+a {
+  text-decoration: none;
+  color: #450D0B;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+.container {
+  margin: 0 auto;
+  width: 960px;
+}
+
+#top {
+  height: 119px;
+  background: url('images/topo.png') center;
+}
+.inicial #top {
+  height: 515px;
+  background: url('images/topoIni.png') center;
+}
+
+ul#menu {
+  float: right;
+  margin: 65px 0 0;
+  padding: 0;
+  min-width: 650px;
+}
+ul#menu li {
+  margin: 0;
+  list-style: none;
+}
+ul#menu li a {
+  float: left;
+  display: block;
+  padding: 8px 15px 5px;
+  font: 20px Lithos, sans-serif;
+  color: #FFF;
+  text-shadow: 5px 5px 5px #000;
+  text-decoration: none;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+}
+ul#menu li a:hover,
+ul#menu li.active a {
+  background: #230403;
+}
+
+#destaque {
+  display: none;
+  position: relative;
+  top: 30px;
+}
+#destaque .slide {
+  padding: 0 90px;
+  height: 350px;
+  color: #FFF;
+}
+#destaque .slide img {
+  float: right;
+  margin-top: 40px;
+  width: 300px;
+  border: 8px solid #FFF;
+  box-shadow: 2px 2px 25px #222;
+  -moz-box-shadow: 2px 2px 25px #222;
+  -webkit-box-shadow: 2px 2px 25px #222;
+  transform: rotate(3deg); 
+  -moz-transform: rotate(3deg); 
+  -webkit-transform: rotate(3deg); 
+}
+#destaque .slide .chamada {
+  float: left;
+  width: 430px;
+  margin-top: 70px;
+  text-shadow: 2px 2px 10px #000;
+}
+#destaque .slide h1 {
+  width: 100%;
+  font-size: 25px;
+  border: none;
+}
+#destaque .slide p {
+  font-size: 18px;
+}
+
+#content {
+  float: left;
+  padding: 40px 0;
+  width: 67%;
+}
+#content img {
+  margin: 10px;
+}
+
+#side {
+  float: right;
+  padding: 40px 0;
+  width: 29%;
+  font-size: 12px;
+}
+#side ul {
+  margin: 0;
+  padding: 0;
+}
+#side ul li {
+  margin-bottom: 15px;
+  list-style: none;
+}
+
+#bottom {
+  clear: both;
+  margin: 0 auto;
+  padding: 20px 0;
+  width: 800px;
+  font-size: 12px;
+  text-align: center;
+  border-top: 1px dotted #450D0B;
+}
+#bottom ul {
+  margin: 0 0 10px;
+  padding: 0;
+}
+#bottom ul li {
+  display: inline;
+  padding: 0 10px;
+  font-weight: bold;
+  list-style: none;
+}
+
+#agendaSexta {
+  float:left; width: 480px;
+}
+
+#agendaSabado {
+  float:left; width: 480px;
+}
+
+/* DESTAQUE INICIAL */
+.dssSlide {
+  overflow: hidden !important;
+}
+.dssControl[direction] {
+  cursor: pointer;
+  width: 35px;
+  height: 65px;
+}
+.dssControl[direction='-1'] {
+  position: absolute;
+  top: 140px;
+  left: 10px;
+  background: url('images/setaL.gif') no-repeat;
+}
+.dssControl[direction='1'] {
+  position: absolute;
+  top: 140px;
+  right: 10px;
+  background: url('images/setaR.gif') no-repeat;
+}
+.dssControl span {
+  display: none;
+}
