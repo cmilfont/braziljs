@@ -46,6 +46,9 @@ a {
 a:hover {
   text-decoration: underline;
 }
+img {
+  border: none;
+}
 
 .container {
   margin: 0 auto;
@@ -53,6 +56,7 @@ a:hover {
 }
 
 #top {
+  position: relative;
   height: 119px;
   background: url('images/topo.png') center;
 }
@@ -68,6 +72,7 @@ ul#menu {
   min-width: 650px;
 }
 ul#menu li {
+  display: inline;
   margin: 0;
   list-style: none;
 }
@@ -90,8 +95,8 @@ ul#menu li.active a {
 
 #destaque {
   display: none;
-  position: relative;
-  top: 30px;
+  position: absolute;
+  top: 149px;
 }
 #destaque .slide {
   padding: 0 90px;
