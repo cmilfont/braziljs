@@ -1,0 +1,29 @@
+#! /bin/sh
+# /etc/init.d/braziljs
+#
+# update-rc.d braziljs defaults
+# update-rc.d -f braziljs remove
+
+# Some things that run always
+touch /var/lock/braziljs
+
+case "$1" in
+  start)
+    echo "Starting script braziljs "
+    cd /home/jsconfbr/braziljs.com.br/ && NODE_ENV=production forever start server.js
+    ;;
+  stop)
+    echo "Stopping script braziljs"
+    cd /home/jsconfbr/braziljs.com.br/ && forever stop server.js
+    ;;
+  list)
+    echo "Listining script braziljs "
+    forever list
+    ;;
+  *)
+    echo "Usage: /etc/init.d/braziljs {start|stop}"
+    exit 1
+    ;;
+esac
+
+exit 0
