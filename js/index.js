@@ -10,8 +10,7 @@ var mostrarDestaque = function(toggle) {
     $(document).ready(function(){
       $('#destaque').divSlideShow( { width:960, height:350, loop:999999, delay:10000 } );
     });
-    
-    
+
 	} else {
     $("#destaque").hide();
     $('body').removeClass('inicial');
@@ -23,12 +22,6 @@ var mostrarDestaque = function(toggle) {
   var app = $.sammy('#corpo .container', function() {
     //this.use('GoogleAnalytics');
     this.use(Sammy.XTemplate);
-
-    this.get('#palestrantes', function() {
-      this.load('palestrantes', {cache: true, json:true})
-          .render('/templates/palestrantes.ejs')
-          .swap();
-    });
     
     this.get('#!home', function() {
     	
@@ -42,6 +35,14 @@ var mostrarDestaque = function(toggle) {
     	ativarMenu("#!agenda");
     	mostrarDestaque(false);
       this.partial('/views/agenda.ejs');
+    });
+    
+    this.get('#!local', function() {
+      ativarMenu("#!local");
+      mostrarDestaque(false);
+      this.load('agenda', {cache: true, json:true})
+          .render('/views/palestrantes.ejs')
+          .swap();
     });
 
   });
