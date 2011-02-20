@@ -59,10 +59,10 @@ var twitter = function() {
     //this.use('GoogleAnalytics');
     //this.use(Sammy.XTemplate);
     
-    this.get('#!home', function() {
+    this.get('#!/home', function() {
     	
       this.partial('/views/home.html').then(function() {
-	      ativarMenu("#!home");
+	      ativarMenu("#!/home");
         mostrarDestaque(true);
         if(twitterWidget) {
         	twitterWidget.start();
@@ -74,16 +74,16 @@ var twitter = function() {
       
     });
     
-    this.get('#!agenda', function() {
+    this.get('#!/agenda', function() {
       this.partial('/views/agenda.html').then(function() {
-        ativarMenu("#!agenda");
+        ativarMenu("#!/agenda");
         mostrarDestaque(false);
         if(twitterWidget)  twitterWidget.stop();
       });
     });
     
-    this.get('#!local', function() {
-      ativarMenu("#!local");
+    this.get('#!/local', function() {
+      ativarMenu("#!/local");
       mostrarDestaque(false);
       this.load('agenda', {cache: true, json:true})
           .render('/views/palestrantes.html')
@@ -93,7 +93,7 @@ var twitter = function() {
   });
 
   $(function() {
-    app.run('#!home');
+    app.run('#!/home');
     $(document).ready(function(){
       $('#destaque').divSlideShow( { width:960, height:350, loop:999999, delay:10000 } );
     });
