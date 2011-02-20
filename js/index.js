@@ -13,40 +13,43 @@ var mostrarDestaque = function(toggle) {
 	}
 };
 
+var twitterWidget;
+
 var twitter = function() {
 
-new TWTR.Widget({
-  id: "twtr-widget",
-   version: 2,
-   type: 'search',
-   search: 'braziljs',
-   interval: 6000,
-   title: 'BrazilJS',
-   subject: 'The Brazilian JS Conference',
-   width: 'auto',
-   height: 415,
-   theme: {
-     shell: {
-       background: '#450d0b',
-       color: '#ffffff'
+  twitterWidget = new TWTR.Widget({
+    id: "twtr-widget",
+     version: 2,
+     type: 'search',
+     search: 'braziljs',
+     interval: 6000,
+     title: 'BrazilJS',
+     subject: 'The Brazilian JS Conference',
+     width: 'auto',
+     height: 415,
+     theme: {
+       shell: {
+         background: '#450d0b',
+         color: '#ffffff'
+       },
+       tweets: {
+         background: '#ffffff',
+         color: '#444444',
+         links: '#1985b5'
+       }
      },
-     tweets: {
-       background: '#ffffff',
-       color: '#444444',
-       links: '#1985b5'
+     features: {
+       scrollbar: true,
+       loop: true,
+       live: true,
+       hashtags: true,
+       timestamp: true,
+       avatars: true,
+       toptweets: true,
+       behavior: 'default'
      }
-   },
-   features: {
-     scrollbar: true,
-     loop: true,
-     live: true,
-     hashtags: true,
-     timestamp: true,
-     avatars: true,
-     toptweets: true,
-     behavior: 'default'
-   }
- }).render().start();
+ })
+ twitterWidget.render().start();
 
 };
  
@@ -54,22 +57,28 @@ new TWTR.Widget({
 
   var app = $.sammy('#corpo .container', function() {
     //this.use('GoogleAnalytics');
-    this.use(Sammy.XTemplate);
+    //this.use(Sammy.XTemplate);
     
     this.get('#!home', function() {
     	
-      this.partial('/views/home.ejs').then(function() {
+      this.partial('/views/home.html').then(function() {
 	      ativarMenu("#!home");
         mostrarDestaque(true);
-        twitter();
+        if(twitterWidget) {
+        	twitterWidget.start();
+        } else {
+        	twitter();
+        }
+        
       });
       
     });
     
     this.get('#!agenda', function() {
-      this.partial('/views/agenda.ejs').then(function() {
+      this.partial('/views/agenda.html').then(function() {
         ativarMenu("#!agenda");
         mostrarDestaque(false);
+        if(twitterWidget)  twitterWidget.stop();
       });
     });
     
@@ -77,7 +86,7 @@ new TWTR.Widget({
       ativarMenu("#!local");
       mostrarDestaque(false);
       this.load('agenda', {cache: true, json:true})
-          .render('/views/palestrantes.ejs')
+          .render('/views/palestrantes.html')
           .swap();
     });
 

@@ -11,10 +11,6 @@ app.use(express.bodyDecoder());
 app.use(express.cookieDecoder());
 app.use(express.session({ secret: 'keyboard cat' }));
 
-var users = {
-    name: 'Milfont', email: 'cmilfont@gmail.com'
-};
-
 var palestrantes = [
   {
   id: 1
@@ -38,9 +34,9 @@ var agenda = [
 
 app.get('/', function(req, res){
 	
-  console.log(req.query);
+  //console.log(req.query);
 
-  res.render('home');
+  res.render("index");
 });
 
 app.get('/agenda', function(req, res){ 
