@@ -134,6 +134,8 @@ ul#menu li.active a {
   float: left;
   padding: 40px 0;
   width: 67%;
+  min-height: 500px;
+  
 }
 #content img {
   margin: 10px;

@@ -74,6 +74,14 @@ var twitter = function() {
       
     });
     
+    this.get('#!/inscricoes', function() {
+      this.partial('/views/inscricoes.html').then(function() {
+        ativarMenu("#!/inscricoes");
+        mostrarDestaque(false);
+        if(twitterWidget)  twitterWidget.stop();
+      });
+    });
+    
     this.get('#!/agenda', function() {
       this.partial('/views/agenda.html').then(function() {
         ativarMenu("#!/agenda");
