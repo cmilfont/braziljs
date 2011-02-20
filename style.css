@@ -196,6 +196,10 @@ ul#menu li.active a {
   float: left;
 }
 
+#content_agenda a {
+  color: blue;
+}
+
 /* DESTAQUE INICIAL */
 .dssSlide {
   overflow: hidden !important;
