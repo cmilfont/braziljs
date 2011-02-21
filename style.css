@@ -58,11 +58,23 @@ img {
 #top {
   position: relative;
   height: 119px;
-  background: url('images/topo.png') center;
+  background: #450D0B url('images/topo.png') no-repeat center;
 }
 .inicial #top {
   height: 515px;
-  background: url('images/topoIni.png') center;
+  background: #450D0B url('images/topoIni.png') no-repeat center;
+}
+#top .container {
+  position: relative;
+}
+
+#logo {
+  position: absolute;
+  display: block;
+  top: 47px;
+  left: 0;
+  width: 200px;
+  height: 60px;
 }
 
 ul#menu {
