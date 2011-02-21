@@ -185,19 +185,31 @@ ul#menu li.active a {
 }
 
 #content_agenda {
-    float: left;
-    padding-bottom: 40px;
-    padding-left: 0;
-    padding-right: 0;
-    padding-top: 40px;
+  float: left;
+  padding-bottom: 40px;
+  padding-left: 0;
+  padding-right: 0;
+  padding-top: 40px;
 }
-
+#content_agenda .horario {
+  font-size: 10px;
+}
 #content_agenda img {
   float: left;
+  margin: 0 8px;
+  width: 70px;
+  box-shadow: 2px 2px 6px #450D0B;
+  -moz-box-shadow: 2px 2px 6px #450D0B;
+  -webkit-box-shadow: 2px 2px 6px #450D0B;
+  border: 1px solid #450D0B;
 }
-
 #content_agenda a {
   color: blue;
+}
+#content_agenda tr {
+  display: block;
+  padding: 5px;
+  border-bottom: 1px dotted #450D0B;
 }
 
 /* DESTAQUE INICIAL */
