@@ -37,7 +37,7 @@ var twitter = function() {
 var renderPage = function(destaque, route, callback) {
   mostrarDestaque(destaque);
   ativarMenu(route);
-  cb.call(this);
+  callback.call(this);
 };
 var iniciarTwitter = function(){
   if(twitterWidget) { twitterWidget.start(); } else { twitter(); }
