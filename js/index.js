@@ -47,7 +47,7 @@ var pararTwitter = function() { if(twitterWidget)  twitterWidget.stop(); };
  ;(function($) {
 
   var app = $.sammy('#corpo .container', function() {
-    //this.use('GoogleAnalytics');
+    this.use('GoogleAnalytics');
     //this.use(Sammy.XTemplate);
     
     this.get('#!/home', function() {
@@ -86,11 +86,10 @@ var pararTwitter = function() { if(twitterWidget)  twitterWidget.stop(); };
       });
     });
     
-    
-    
   });
 
   $(function() {
+    _uacct = "UA-20244589-2";urchinTracker();
     app.run('#!/home');
     $('#destaque').divSlideShow( { width:960, height:350, loop:999999, delay:10000 } );
   });
