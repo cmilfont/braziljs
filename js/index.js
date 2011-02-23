@@ -1,3 +1,13 @@
+_uacct = "UA-20244589-2"; 
+
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', _uacct]);
+_gaq.push(['_trackPageview']);
+
+ var pageTracker = _gat._getTracker(_uacct); 
+ pageTracker._initData(); 
+ pageTracker._trackPageview(); 
+
 var ativarMenu = function(route) {
   $('#menu li').removeClass('active');
   $('#menu li a[href*="'+route+'"]').parent().addClass("active");
@@ -89,7 +99,6 @@ var pararTwitter = function() { if(twitterWidget)  twitterWidget.stop(); };
   });
 
   $(function() {
-    _uacct = "UA-20244589-2";urchinTracker();
     app.run('#!/home');
     $('#destaque').divSlideShow( { width:960, height:350, loop:999999, delay:10000 } );
   });
