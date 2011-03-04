@@ -125,7 +125,8 @@ ul#menu li.active a {
   -webkit-box-shadow: 2px 2px 25px #222;
   transform: rotate(3deg); 
   -moz-transform: rotate(3deg); 
-  -webkit-transform: rotate(3deg); 
+  -webkit-transform: rotate(3deg);
+  -O-transform: rotate(3deg);
 }
 #destaque .slide .chamada {
   float: left;
