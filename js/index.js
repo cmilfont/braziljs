@@ -54,12 +54,23 @@ var iniciarTwitter = function(){
   if(twitterWidget) { twitterWidget.start(); }
 };
 var pararTwitter = function() { if(twitterWidget)  twitterWidget.stop(); };
- 
+
+var call4paperz = {
+  url: "http://call4paperz.com/events/13.jsonp",
+  callback: function() {
+    var sammy = this;
+    var proposals = sammy.content.event.proposals;
+    $("td.lightning", "table#programacao table tr")
+    .each(function(index) {
+      sammy.render('/views/lightning.html', proposals[index]).replace($(this));
+    });
+  }
+};
+
  ;(function($) {
 
   var app = $.sammy('#corpo .container', function() {
-    //this.use('GoogleAnalytics');
-    //this.use(Sammy.XTemplate);
+    this.use('GoogleAnalytics');
   	this.use(Sammy.Mustache, "html");
     
     this.get('#!/home', function() {
@@ -70,26 +81,11 @@ var pararTwitter = function() { if(twitterWidget)  twitterWidget.stop(); };
     });
     
     this.get('#!/agenda', function() {
+
       this.partial('/views/agenda.html')
       .then(function() {
       	renderPage(false, "#!/agenda", pararTwitter);
-      	
-      })
-      .then(function() {
-        this.load("http://call4paperz.com/events/13.jsonp", {dataType: "jsonp"}, 
-                function() {
-                	var sammy = this;
-                	  var proposals = sammy.content.event.proposals;
-                    $("td.lightning", "table#programacao table tr")
-                    .each(function(index) {
-                      var proposal = proposals[index];
-                      sammy.render('/views/lightning.html', proposal).replace($(this))
-                      //$(this).html(proposal.name);
-                      console.log(proposal,  sammy);
-                    });
-                })
-        //.render('/views/lightning.html', proposal).appendTo($(this))
-        
+        this.load(call4paperz.url, {dataType: "jsonp"}, call4paperz.callback);
       });
       
     });
