@@ -40,7 +40,7 @@ var twitter = function() {
        behavior: 'default'
      }
  })
- twitterWidget.render().start();
+ twitterWidget.render();
 
 };
 
@@ -50,26 +50,48 @@ var renderPage = function(destaque, route, callback) {
   callback.call(this);
 };
 var iniciarTwitter = function(){
-  if(twitterWidget) { twitterWidget.start(); } else { twitter(); }
+	pararTwitter();
+  if(twitterWidget) { twitterWidget.start(); }
 };
 var pararTwitter = function() { if(twitterWidget)  twitterWidget.stop(); };
  
  ;(function($) {
 
   var app = $.sammy('#corpo .container', function() {
-    this.use('GoogleAnalytics');
+    //this.use('GoogleAnalytics');
     //this.use(Sammy.XTemplate);
+  	this.use(Sammy.Mustache, "html");
     
     this.get('#!/home', function() {
       this.partial('/views/home.html').then(function() {
+      	twitter();
       	renderPage(true, "#!/home", iniciarTwitter);
       });
     });
     
     this.get('#!/agenda', function() {
-      this.partial('/views/agenda.html').then(function() {
+      this.partial('/views/agenda.html')
+      .then(function() {
       	renderPage(false, "#!/agenda", pararTwitter);
+      	
+      })
+      .then(function() {
+        this.load("http://call4paperz.com/events/13.jsonp", {dataType: "jsonp"}, 
+                function() {
+                	var sammy = this;
+                	  var proposals = sammy.content.event.proposals;
+                    $("td.lightning", "table#programacao table tr")
+                    .each(function(index) {
+                      var proposal = proposals[index];
+                      sammy.render('/views/lightning.html', proposal).replace($(this))
+                      //$(this).html(proposal.name);
+                      console.log(proposal,  sammy);
+                    });
+                })
+        //.render('/views/lightning.html', proposal).appendTo($(this))
+        
       });
+      
     });
 
     this.get('#!/local', function() {
