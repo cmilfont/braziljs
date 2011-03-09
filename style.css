@@ -273,3 +273,7 @@ ul#menu li.active a {
 .dssControl span {
   display: none;
 }
+
+.hide_destaque {
+  overflow: hidden; display: none;
+}

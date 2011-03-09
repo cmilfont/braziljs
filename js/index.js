@@ -74,9 +74,11 @@ var call4paperz = {
   	this.use(Sammy.Mustache, "html");
     
     this.get('#!/home', function() {
+    	
       this.partial('/views/home.html').then(function() {
       	twitter();
       	renderPage(true, "#!/home", iniciarTwitter);
+      	$('#destaque').divSlideShow( { width:960, height:350, loop:999999, delay:10000 } );
       });
     });
     
@@ -118,6 +120,5 @@ var call4paperz = {
 
   $(function() {
     app.run('#!/home');
-    $('#destaque').divSlideShow( { width:960, height:350, loop:999999, delay:10000 } );
   });
 })(jQuery);
