@@ -47,6 +47,7 @@ a:hover {
   text-decoration: underline;
 }
 img {
+  vertical-align: middle;
   border: none;
 }
 
