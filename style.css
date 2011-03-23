@@ -24,8 +24,8 @@ h1 {
   padding: 0;
   width: 60%;
   height: 24px;
-  font-size: 24px;
-  border-bottom: 5px solid #AB8978;
+  font-size: 18px;
+  border-bottom: 3px solid #AB8978;
 }
 /* h1 span { */
 /*   display: block; */
@@ -227,22 +227,18 @@ ul#menu li.active a {
 
 #contentquemsomos {
   padding: 40px 0;
-  float: left;
+  width: 700px;
   min-height: 500px;
 }
 
 .quemsomos {
-  width: 130px;
-  float: left;
-  padding-bottom: 40px;
-  padding-left: 40;
-  padding-right: 40;
-  padding-top: 40px;
+  clear: both;
+  margin: 30px 0;
 }
 
 .quemsomos img {
-  /*float: left;*/
-  margin: 0 8px;
+  float: left;
+  margin: 0 10px 10px;
   width: 70px;
   box-shadow: 2px 2px 6px #450D0B;
   -moz-box-shadow: 2px 2px 6px #450D0B;
