@@ -204,7 +204,14 @@ ul#menu li.active a {
   padding-right: 0;
   padding-top: 40px;
 }
+#content_agenda #programacao > tbody > tr > td {
+  width: 400px;
+}
+#content_agenda .lightning {
+  width: 100% !important;
+}
 #content_agenda .horario {
+  width: 50px !important;
   font-size: 10px;
 }
 #content_agenda img {
@@ -221,7 +228,6 @@ ul#menu li.active a {
 }
 #content_agenda tr {
   display: block;
-  padding: 5px;
   border-bottom: 1px dotted #450D0B;
 }
 
