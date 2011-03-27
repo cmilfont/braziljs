@@ -67,58 +67,55 @@ var call4paperz = {
   }
 };
 
- ;(function($) {
+var rota = function(template, route, sammy) {
+  sammy.partial(template).then(function() {
+    renderPage(false, route, pararTwitter);
+  });
+};
+
+var milosa = true;
+
+;(function($) {
 
   var app = $.sammy('#corpo .container', function() {
     this.use('GoogleAnalytics');
   	this.use(Sammy.Mustache, "html");
     
     this.get('#!/home', function() {
-    	
       this.partial('/views/home.html').then(function() {
       	twitter();
       	renderPage(true, "#!/home", iniciarTwitter);
-      	$('#destaque').divSlideShow( { width:960, height:350, loop:999999, delay:10000 } );
+        if(milosa) {
+          $('#destaque').divSlideShow( { width:960, height:350, loop:999999, delay:10000 } );
+          milosa = false;
+        }
       });
     });
     
     this.get('#!/agenda', function() {
-
-      this.partial('/views/agenda.html')
-      .then(function() {
+      this.partial('/views/agenda.html').then(function() {
       	renderPage(false, "#!/agenda", pararTwitter);
         this.load(call4paperz.url, {dataType: "jsonp"}, call4paperz.callback);
       });
-      
     });
 
     this.get('#!/local', function() {
-      this.partial('/views/local.html').then(function() {
-      	renderPage(false, "#!/local", pararTwitter);
-      });
+      rota('/views/local.html', '#!/local', this);
     });
     
     this.get('#!/inscricoes', function() {
-      this.partial('/views/inscricoes.html').then(function() {
-        renderPage(false, "#!/inscricoes", pararTwitter);
-      });
+      rota('/views/inscricoes.html', '#!/inscricoes', this);
     });
 
     this.get('#!/quemsomos', function() {
-      this.partial('/views/quemsomos.html').then(function() {
-        renderPage(false, "#!/quemsomos", pararTwitter);
-      });
+      rota('/views/quemsomos.html', '#!/quemsomos', this);
     });
 
     this.get('#!/contato', function() {
-      this.partial('/views/contato.html').then(function() {
-        renderPage(false, "#!/contato", pararTwitter);
-      });
+      rota('/views/contato.html', '#!/contato', this);
     });
     
   });
 
-  $(function() {
-    app.run('#!/home');
-  });
+  $(function() { app.run('#!/home'); });
 })(jQuery);
