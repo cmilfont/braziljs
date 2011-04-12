@@ -115,6 +115,10 @@ var milosa = true;
       rota('/views/contato.html', '#!/contato', this);
     });
     
+    this.get('#!/inscricaoantiga', function() {
+      rota('/views/inscricaoantiga.html', '#!/inscricaoantiga', this);
+    });
+    
   });
 
   $(function() { app.run('#!/home'); });
