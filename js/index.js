@@ -55,6 +55,7 @@ var iniciarTwitter = function(){
 };
 var pararTwitter = function() { if(twitterWidget)  twitterWidget.stop(); };
 
+/*
 var call4paperz = {
   url: "http://call4paperz.com/events/13.jsonp",
   callback: function() {
@@ -66,6 +67,7 @@ var call4paperz = {
     });
   }
 };
+*/
 
 var rota = function(template, route, sammy) {
   sammy.partial(template).then(function() {
@@ -93,10 +95,13 @@ var milosa = true;
     });
     
     this.get('#!/agenda', function() {
-      this.partial('/views/agenda.html').then(function() {
+      
+      rota('/views/agenda.html', '#!/agenda', this);
+      
+      /*this.partial('/views/agenda.html').then(function() {
       	renderPage(false, "#!/agenda", pararTwitter);
         this.load(call4paperz.url, {dataType: "jsonp"}, call4paperz.callback);
-      });
+      });*/
     });
 
     this.get('#!/local', function() {
