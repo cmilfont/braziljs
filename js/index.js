@@ -4,9 +4,14 @@ var _gaq = _gaq || [];
 _gaq.push(['_setAccount', _uacct]);
 _gaq.push(['_trackPageview']);
 
+try {
  var pageTracker = _gat._getTracker(_uacct); 
  pageTracker._initData(); 
- pageTracker._trackPageview(); 
+ pageTracker._trackPageview(); 	
+} catch(e) {
+	if (console) console.log(e);
+}
+
 
 var ativarMenu = function(route) {
   $('#menu li').removeClass('active');
