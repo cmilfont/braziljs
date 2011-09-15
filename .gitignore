@@ -1,2 +1,5 @@
 *.swp
 .project
+deploy
+deploy.conf
+node_modules/
