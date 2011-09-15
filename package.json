@@ -1,11 +1,11 @@
 {
-  "author": "",
-  "name": "Carcará",
-  "description": "The winner project",
+  "author": "Christiano Milfont",
+  "name": "BrazilJS 2011",
+  "description": "BrazilJS Conference 2011",
   "version": "0.0.1",
   "repository": {
     "type": "git",
-    "url": "git://github.com/nko2/carcar.git"
+    "url": "git://github.com/cmilfont/braziljs.git"
   },
   "engines": {
     "node": "~v0.4.11"
