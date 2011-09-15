@@ -6,8 +6,8 @@ var app = express.createServer();
 
 app.set('views', __dirname + '/views');
 app.set('view engine', 'ejs');
-app.use(express.bodyDecoder());
-app.use(express.cookieDecoder());
+app.use(express.bodyParser());
+app.use(express.cookieParser());
 app.use(express.session({ secret: 'keyboard cat' }));
 
 var palestrantes = [
@@ -45,7 +45,7 @@ app.get('/palestrantes', function(req, res){
 });
 
 app.use(express.errorHandler({ showStack: true }));
-app.use(express.staticProvider(__dirname));
+app.use(express.static(__dirname));
 
 app.listen(8000);
 console.log('Express started on port 8000');
